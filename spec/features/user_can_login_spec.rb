@@ -1,0 +1,21 @@
+require 'rails_helper'
+
+RSpec.feature('Login') do
+  context('A currently signed-out user') do
+    scenario('can login successfully') do
+      user = create(:user)
+
+      visit root_path
+
+      expect(current_path).to eq(login_path)
+
+      fill_in("session[email]", with: user.email)
+      fill_in("session[password]", with: user.password)
+      click_on('Login')
+
+      expect(current_path).to eq(root_path)
+      expect(page).to have_content("Welcome back, #{user.first_name}")
+      expect(page).to have_link("Logout")
+    end
+  end
+end
