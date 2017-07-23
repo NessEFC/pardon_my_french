@@ -11,7 +11,7 @@ RSpec.feature('Login') do
 
       fill_in("session[email]", with: user.email)
       fill_in("session[password]", with: user.password)
-      click_on('Login')
+      click_on('Submit')
 
       expect(current_path).to eq(root_path)
       expect(page).to have_content("Welcome back #{user.first_name}, let's get started!")
@@ -26,7 +26,7 @@ RSpec.feature('Login') do
       expect(current_path).to eq(login_path)
 
       fill_in("session[email]", with: user.email)
-      click_on('Login')
+      click_on('Submit')
 
       expect(current_path).to eq(login_path)
       expect(page).to have_content("Login failed, make sure your email and password are correct.")
@@ -40,7 +40,7 @@ RSpec.feature('Login') do
       expect(current_path).to eq(login_path)
 
       fill_in("session[password]", with: user.password)
-      click_on('Login')
+      click_on('Submit')
 
       expect(current_path).to eq(login_path)
       expect(page).to have_content("Login failed, make sure your email and password are correct.")
