@@ -14,7 +14,7 @@ RSpec.feature('Login') do
       click_on('Login')
 
       expect(current_path).to eq(root_path)
-      expect(page).to have_content("Welcome back, #{user.first_name}")
+      expect(page).to have_content("Welcome back #{user.first_name}, let's get started!")
       expect(page).to have_link("Logout")
     end
 
