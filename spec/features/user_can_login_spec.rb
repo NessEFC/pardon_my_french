@@ -17,5 +17,19 @@ RSpec.feature('Login') do
       expect(page).to have_content("Welcome back, #{user.first_name}")
       expect(page).to have_link("Logout")
     end
+
+    scenario('cannot login successfully') do
+      user = create(:user)
+
+      visit root_path
+
+      expect(current_path).to eq(login_path)
+
+      fill_in("session[email]", with: user.email)
+      click_on('Submit')
+
+      expect(current_path).to eq(login_path)
+      expect(page).to have_content("Login failed, make sure your email and password are correct.")
+    end
   end
 end
