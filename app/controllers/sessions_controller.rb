@@ -9,6 +9,8 @@ class SessionsController < ApplicationController
       redirect_to root_path
       flash[:success] = "Welcome back #{@user.first_name}, let's get started!"
     else
+      redirect_to login_path
+      flash[:danger] = "Login failed, make sure your email and password are correct."
     end
   end
 

@@ -26,7 +26,7 @@ RSpec.feature('Login') do
       expect(current_path).to eq(login_path)
 
       fill_in("session[email]", with: user.email)
-      click_on('Submit')
+      click_on('Login')
 
       expect(current_path).to eq(login_path)
       expect(page).to have_content("Login failed, make sure your email and password are correct.")
