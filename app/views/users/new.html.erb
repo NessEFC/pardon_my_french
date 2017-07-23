@@ -1,0 +1,12 @@
+<h1>Create Your Account</h1>
+<p>Already have an account? <%= link_to "Log me in!", login_path %></p>
+
+
+<%= bootstrap_form_for(@user) do |f| %>
+  <%= f.text_field :first_name %>
+  <%= f.text_field :last_name %>
+  <%= f.email_field :email %>
+  <%= f.password_field :password %>
+  <%= f.password_field :password_confirmation %>
+  <%= f.submit 'Sign Up' %>
+<% end %>

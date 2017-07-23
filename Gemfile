@@ -5,8 +5,12 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+ruby '2.4.1'
 
 gem 'autoprefixer-rails'
+gem 'bcrypt', '~> 3.1.7'
+gem 'bootstrap_form'
+gem 'bootstrap-sass', '~> 3.3.6'
 gem 'coffee-rails', '~> 4.2'
 gem 'faker'
 gem 'faraday'
@@ -21,7 +25,6 @@ gem 'uglifier', '>= 1.3.0'
 
 
 # gem 'redis', '~> 3.0'
-# gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
