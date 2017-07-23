@@ -18,7 +18,7 @@ RSpec.feature('Login') do
       expect(page).to have_link("Logout")
     end
 
-    scenario('cannot login successfully') do
+    scenario('cannot login successfully with missing password') do
       user = create(:user)
 
       visit root_path
@@ -26,6 +26,20 @@ RSpec.feature('Login') do
       expect(current_path).to eq(login_path)
 
       fill_in("session[email]", with: user.email)
+      click_on('Login')
+
+      expect(current_path).to eq(login_path)
+      expect(page).to have_content("Login failed, make sure your email and password are correct.")
+    end
+
+    scenario('cannot login successfully with missing email') do
+      user = create(:user)
+
+      visit root_path
+
+      expect(current_path).to eq(login_path)
+
+      fill_in("session[password]", with: user.password)
       click_on('Login')
 
       expect(current_path).to eq(login_path)
