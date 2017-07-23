@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       redirect_to root_path
-      flash[:success] = "Welcome back #{@user.first_name}, let's get started!"
+      flash[:success] = "Thanks for joining #{@user.first_name}, let's get started!"
     else
       redirect_to new_user_path, flash: { danger: @user.errors.full_messages.join(', ') }
     end

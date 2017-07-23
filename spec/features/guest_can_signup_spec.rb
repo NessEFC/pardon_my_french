@@ -24,7 +24,7 @@ RSpec.feature('Sign-up') do
       expect(user.last_name).to eq('Ness')
       expect(user.email).to eq('craig@example.com')
       expect(user.password_digest).not_to be_empty
-      expect(page).to have_content("Welcome back #{user.first_name}, let's get started!")
+      expect(page).to have_content("Thanks for joining #{user.first_name}, let's get started!")
       expect(page).to have_link('Logout')
     end
 
