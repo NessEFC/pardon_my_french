@@ -13,7 +13,7 @@ RSpec.feature('Create card', js: true) do
 
       expect(page).to have_content('Creation Mode')
 
-      fill_in('text', with: 'Merci')
+      fill_in('card[french_word]', with: 'Merci')
       click_on('Create')
 
       expect(current_path).to eq(root_path)
