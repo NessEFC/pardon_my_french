@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature('Create card', type: :feature, js: true) do
   context('A logged-in user') do
-    scenario('enters a word and a card is created') do
+    scenario('enters a word and connection and a card is created') do
       skip
       user = create(:user)
 
