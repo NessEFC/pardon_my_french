@@ -47,7 +47,7 @@ end
 
 group :test do
   gem 'launchy'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '~> 2.53.4'
   gem 'shoulda-callback-matchers', '~> 1.1.1'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'vcr'
