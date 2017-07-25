@@ -25,22 +25,41 @@ class Card {
             personal_connection: connection
           }
       },
-      success: function(data) {
+      success: ((data) => {
         const card = new Card(data.card)
         card.appendToPage()
         $('input[name="card[french_word]"]').val('')
-        $('input[name="card[personal_connection]"]').val('')
-      },
-      error: function(data) {}
+        $('textarea[name="card[personal_connection]"]').val('')
+      }),
+      error: ((data) => {})
     })
   }
 
   appendToPage() {
     $('.new-card').append(`
-      <div class="word">
-        <p>${this.french_word}</p>
-        <p>${this.personal_connection}</p>
+      <div class="word" data-id="${this.id}">
+        <p class="card-french-word" contenteditable="true">${this.french_word}</p>
+        <p class="card-connection" contenteditable="true">${this.personal_connection}</p>
       </div>
     `)
+  }
+
+  static update(e) {
+    const id = parseInt(e.target.parentElement.dataset.id)
+    const payload = e.target.innerText
+    const payloadType = e.target.className
+
+    const key = (payloadType === 'card-french-word') ? 'french_word' : 'personal_connection'
+    let options = {}
+    options[key] = payload
+
+    $.ajax({
+      type: 'PUT',
+      url: `/api/v1/cards/${id}`,
+      dataType: 'json',
+      data: {
+        card: options
+      }
+    })
   }
 }
