@@ -262,7 +262,7 @@ DEPENDENCIES
   rails (~> 5.1.1)
   rspec-rails
   sass-rails (~> 5.0)
-  selenium-webdriver (~> 2.53.4)
+  selenium-webdriver
   shoulda-callback-matchers (~> 1.1.1)
   shoulda-matchers (~> 3.1)
   spring
