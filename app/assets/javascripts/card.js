@@ -8,6 +8,8 @@ class Card {
   static createCard(e) {
     e.preventDefault()
 
+    $('.new-card').empty()
+
     const word = $('input[name="card[french_word]"]').val().toLowerCase()
 
     $.ajax({
