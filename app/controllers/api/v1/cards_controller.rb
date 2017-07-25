@@ -21,7 +21,7 @@ class Api::V1::CardsController < ApplicationController
   private
 
     def card_params
-      params.require(:card).permit(:french_word).merge(user_id: current_user.id)
+      params.require(:card).permit(:french_word, :personal_connection).merge(user_id: current_user.id)
     end
 
 end
