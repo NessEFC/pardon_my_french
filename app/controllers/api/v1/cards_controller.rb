@@ -18,6 +18,15 @@ class Api::V1::CardsController < ApplicationController
     end
   end
 
+  def update
+    @card = Card.find(params[:id])
+    if @card.update_attributes(card_params)
+      render json: @card, status: 201
+    else
+      render json: @card.errors.full_messages, status: 500
+    end
+  end
+
   private
 
     def card_params
