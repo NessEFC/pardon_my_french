@@ -45,6 +45,7 @@ class Card {
         <p class="card-french-word" contenteditable="true">${this.french_word}</p>
         <p class="card-english-word" contenteditable="true">${this.english_word}</p>
         <p class="card-connection" contenteditable="true">${this.personal_connection}</p>
+        <input type="submit" class="btn btn-success" id="keep-btn" value="Keep & Store">
         <input type="submit" class="btn btn-danger" id="discard-btn" value="Discard">
       </div>
     `)
@@ -90,5 +91,9 @@ class Card {
         $('.new-card').empty()
       })
     })
+  }
+
+  static keep(e) {
+    $('.new-card').empty()
   }
 }
