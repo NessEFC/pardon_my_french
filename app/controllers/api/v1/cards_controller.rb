@@ -27,6 +27,21 @@ class Api::V1::CardsController < ApplicationController
     end
   end
 
+  def destroy
+    @card = Card.find(params[:id])
+    if @card.destroy
+      render json: {
+        status: 204,
+        message: 'Successfully deleted the record.'
+      }
+    else
+      render json: {
+        status: 400,
+        message: 'Something went wrong, could not delete the record.'
+      }
+    end
+  end
+
   private
 
     def card_params
