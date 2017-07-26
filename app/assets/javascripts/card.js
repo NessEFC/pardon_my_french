@@ -9,7 +9,7 @@ class Card {
 
   static checkForCard(e) {
     e.preventDefault()
-    
+
     if($('.word').length === 0) {
       Card.createCard(e)
     } else {
@@ -55,7 +55,15 @@ class Card {
         $('input[name="card[english_word]"]').val('')
         $('textarea[name="card[personal_connection]"]').val('')
       }),
-      error: ((data) => {})
+      error: ((data) => {
+        $('.creation-mode-container').prepend(`
+          <div class="alert alert-warning">
+            <strong>Oops! </strong>${data.responseJSON.message}
+          </div>
+        `)
+
+        Card.clearAlert()
+      })
     })
   }
 

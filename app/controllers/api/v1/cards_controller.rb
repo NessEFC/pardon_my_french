@@ -11,10 +11,17 @@ class Api::V1::CardsController < ApplicationController
         card: @card
       }.to_json
     else
-      render status: 404,
-      json: {
-        message: "Card could not be created."
-      }.to_json
+      if Card.find_by(french_word: card_params[:french_word])
+        render status: 404,
+        json: {
+          message: 'You have already created a Card for this french word.'
+        }.to_json
+      else
+        render status: 404,
+        json: {
+          message: 'You forgot to include a French word.'
+        }.to_json
+      end
     end
   end
 
