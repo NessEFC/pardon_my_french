@@ -7,11 +7,31 @@ class Card {
     this.user_id = card.user_id
   }
 
-  static createCard(e) {
+  static checkForCard(e) {
     e.preventDefault()
+    
+    if($('.word').length === 0) {
+      Card.createCard(e)
+    } else {
+      $('.creation-mode-container').prepend(`
+        <div class="alert alert-warning">
+          <strong>Oops! </strong>You must keep or discard your current card first.
+        </div>
+      `)
 
-    $('.new-card').empty()
+      Card.clearAlert()
+    }
+  }
 
+  static clearAlert() {
+    window.setTimeout(() => {
+      $('.alert').fadeTo(500, 0).slideUp(500, () => {
+        $('.alert').remove()
+      })
+    }, 5000)
+  }
+
+  static createCard(e) {
     const frenchWord = $('input[name="card[french_word]"]').val().toLowerCase()
     const englishWord = $('input[name="card[english_word]"]').val().toLowerCase()
     const connection = $('textarea[name="card[personal_connection]"]').val()
@@ -94,6 +114,6 @@ class Card {
   }
 
   static keep(e) {
-    $('.new-card').empty()
+    $('.word').remove()
   }
 }
