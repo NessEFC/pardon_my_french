@@ -35,6 +35,8 @@ class Card {
     const frenchWord = $('input[name="card[french_word]"]').val().toLowerCase()
     const englishWord = $('input[name="card[english_word]"]').val().toLowerCase()
     const connection = $('textarea[name="card[personal_connection]"]').val()
+    const deckName = $('#deck-input').val()
+    const deckID = $("#decks-list option[value='"+deckName+"']").data('id')
 
     $.ajax({
       type: 'POST',
@@ -45,15 +47,17 @@ class Card {
           {
             french_word: frenchWord,
             english_word: englishWord,
-            personal_connection: connection
+            personal_connection: connection,
+            deck_id: deckID
           }
       },
       success: ((data) => {
         const card = new Card(data.card)
-        card.appendToPage()
+        card.appendToPage(deckName)
         $('input[name="card[french_word]"]').val('')
         $('input[name="card[english_word]"]').val('')
         $('textarea[name="card[personal_connection]"]').val('')
+        $('#deck-input').val('')
       }),
       error: ((data) => {
         $('.creation-mode-container').prepend(`
@@ -67,12 +71,13 @@ class Card {
     })
   }
 
-  appendToPage() {
+  appendToPage(deckName) {
     $('.new-card').append(`
       <div class="word" data-id="${this.id}">
         <p class="card-french-word" contenteditable="true">${this.french_word}</p>
         <p class="card-english-word" contenteditable="true">${this.english_word}</p>
         <p class="card-connection" contenteditable="true">${this.personal_connection}</p>
+        <p class="card-deck-name">${deckName}</p>
         <input type="submit" class="btn btn-success" id="keep-btn" value="Keep & Store">
         <input type="submit" class="btn btn-danger" id="discard-btn" value="Discard">
       </div>

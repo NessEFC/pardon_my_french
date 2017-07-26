@@ -3,19 +3,17 @@
 <div class="creation-mode-container">
 
   <form class="post-form form-group">
-    <p>Create a new Card:</p>
-    <input type="text" name="card[french_word]" placeholder="Bonjour"></input><br>
-    <input type="text" name="card[english_word]" placeholder="Hello"></input><br>
-    <textarea type="text" name="card[personal_connection]" placeholder="A common greeting..."></textarea><br>
+    <h4>Add a new Card:</h4><br>
+    French:<br><input type="text" name="card[french_word]" placeholder="Ex: Bonjour"></input><br><br>
+    English:<br><input type="text" name="card[english_word]" placeholder="Ex: Hello"></input><br><br>
+    Personal Connection:<br><textarea type="text" name="card[personal_connection]" placeholder="Add your own connection"></textarea><br><br>
 
-    <input type="text" id="decks-dropdown" list="decks-list" placeholder="Choose a Deck">
+    <input list="decks-list" id="deck-input" placeholder="Add to Deck">
       <datalist id="decks-list">
-        <% @decks.each do |deck| %>
-          <option value="<%= deck.name %>">
-        <% end %>
-      </datalist>
-    </input><br><br>
-
+          <% @decks.each do |deck| %>
+            <option data-id="<%= deck.id %>" value="<%= deck.name %>"><%= deck.name %></option>
+          <% end %>
+      </datalist><br><br>
     <input type="submit" class="btn btn-primary" id="create-card-btn" value="Create">
   </form>
 
