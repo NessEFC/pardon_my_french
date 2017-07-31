@@ -14,6 +14,8 @@ const fetchDeckCards = (e) => {
 
     updateDeckBadge(count, e.target)
 
+    $('.card-list').empty()
+    
     cards.forEach((card) => {
       const cardObject = new Card(card)
       cardObject.appendToStudyPage()
