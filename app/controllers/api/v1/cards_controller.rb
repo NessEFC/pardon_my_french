@@ -5,7 +5,9 @@ class Api::V1::CardsController < ApplicationController
   def create
     if Deck.exists?(id: card_params[:deck_id])
       @deck = Deck.find(card_params[:deck_id])
-    else !Deck.exists?(id: card_params[:deck_id])
+    elsif card_params[:deck_id].empty?
+      @deck = Deck.find_or_create_by(name: 'unassigned')
+    else
       @deck = Deck.find_or_create_by(name: card_params[:deck_id])
     end
 
