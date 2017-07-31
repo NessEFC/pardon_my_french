@@ -35,8 +35,11 @@ class Card {
     const frenchWord = $('input[name="card[french_word]"]').val().toLowerCase()
     const englishWord = $('input[name="card[english_word]"]').val().toLowerCase()
     const connection = $('textarea[name="card[personal_connection]"]').val()
-    const deckName = $('#deck-input').val()
-    const deckID = $("#decks-list option[value='"+deckName+"']").data('id')
+    const deckName = $('#deck-input').val().toLowerCase()
+    let deckID = $("#decks-list option[value='"+deckName+"']").data('id')
+    if(typeof deckID === 'undefined') {
+      deckID = deckName
+    }
 
     $.ajax({
       type: 'POST',
