@@ -88,7 +88,7 @@ class Card {
   }
 
   appendToStudyPage() {
-    $('.card-list').prepend(`
+    $('.card-list').append(`
       <div class="word study-card" data-id="${this.id}">
         <p class="card-french-word">${this.french_word}</p>
         <p class="card-english-word">${this.english_word}</p>
