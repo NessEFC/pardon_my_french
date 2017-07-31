@@ -3,7 +3,13 @@ class Api::V1::CardsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def create
-    @card = Card.new(card_params)
+    if Deck.exists?(id: card_params[:deck_id])
+      @deck = Deck.find(card_params[:deck_id])
+    else !Deck.exists?(id: card_params[:deck_id])
+      @deck = Deck.find_or_create_by(name: card_params[:deck_id])
+    end
+
+    @card = @deck.cards.new(card_params)
     if @card.save
       render status: 201,
       json: {
