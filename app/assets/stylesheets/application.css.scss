@@ -22,3 +22,40 @@
   height: 200px;
   width: 200px;
 }
+
+.deck-list {
+  border-right: 5px solid black;
+  height: 400px;
+}
+
+.deck-list .deck {
+  width: 100%;
+  margin: 10px;
+  border: 3px solid black;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+.deck button {
+  background-color: skyblue;
+  color: black;
+}
+
+.card-list {
+  width: 80%;
+  font-size: 30px;
+  border: 3px solid black;
+  border-radius: 10px;
+  margin-left: 20px;
+  min-height: 400px;
+}
+
+.study-card {
+  display: inline-block;
+}
+
+#next-card-btn {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
