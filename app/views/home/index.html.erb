@@ -1,23 +1,40 @@
-<h1>Creation Mode</h1><br>
+<h1>Creation Mode</h1>
 
-<div class="creation-mode-container">
+<button class="btn btn-success toggle-mode-btn">Study Mode</button>
 
-  <form class="post-form form-group">
-    <h4>Add a new Card:</h4><br>
-    French:<br><input type="text" name="card[french_word]" placeholder="Ex: Bonjour"></input><br><br>
-    English:<br><input type="text" name="card[english_word]" placeholder="Ex: Hello"></input><br><br>
-    Personal Connection:<br><textarea type="text" name="card[personal_connection]" placeholder="Add your own connection"></textarea><br><br>
+<section class="box-container">
+  <div id="box">
+    <figure class="front">
+      <div class="creation-mode-container">
 
-    <input list="decks-list" id="deck-input" placeholder="Add to Deck">
-      <datalist id="decks-list">
-          <% @decks.each do |deck| %>
-            <option data-id="<%= deck.id %>" value="<%= deck.name %>"><%= deck.name %></option>
-          <% end %>
-      </datalist><br><br>
-    <input type="submit" class="btn btn-primary" id="create-card-btn" value="Create">
-  </form>
+        <form class="post-form form-group">
+          <h4>Add a new Card:</h4><br>
+          French:<br><input type="text" name="card[french_word]" placeholder="Ex: Bonjour"></input><br><br>
+          English:<br><input type="text" name="card[english_word]" placeholder="Ex: Hello"></input><br><br>
+          Personal Connection:<br><textarea type="text" name="card[personal_connection]" placeholder="Add your own connection"></textarea><br><br>
 
-  <div class="new-card">
+          <input list="decks-list" id="deck-input" placeholder="Add to Deck">
+            <datalist id="decks-list">
+                <% @decks.each do |deck| %>
+                  <option data-id="<%= deck.id %>" value="<%= deck.name %>"><%= deck.name %></option>
+                <% end %>
+            </datalist><br><br>
+          <input type="submit" class="btn btn-primary" id="create-card-btn" value="Create">
+        </form>
+
+        <div class="new-card">
+        </div>
+
+      </div>
+    </figure>
+
+    <figure class="back">
+      <p>Study</p>
+    </figure>
+
+    <figure class="right"></figure>
+    <figure class="left"></figure>
+    <figure class="top"></figure>
+    <figure class="bottom"></figure>
   </div>
-
-</div>
+</section>
