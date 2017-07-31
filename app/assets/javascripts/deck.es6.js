@@ -12,9 +12,9 @@ class Deck {
   }
 
   appendToPage() {
-    $('.deck-list').prepend(`
+    $('.deck-list').append(`
       <div class="deck" data-id="${this.id}">
-        <button type="button" class="list-group-item list-group-item-action justify-content-between">${this.name}</button>
+        <button type="button" class="list-group-item list-group-item-action justify-content-between">${this.name}<span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span></button>
       </div>
     `)
   }

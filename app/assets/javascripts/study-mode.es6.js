@@ -10,12 +10,28 @@ const fetchDeckCards = (e) => {
     url: `/api/v1/decks/${deckID}`,
     dataType: 'json'
   }).then((cards) => {
+    let count = cards.length
+
+    updateDeckBadge(count, e.target)
+
     cards.forEach((card) => {
       const cardObject = new Card(card)
       cardObject.appendToStudyPage()
     })
 
   }).fail(displayFailure)
+}
+
+const updateDeckBadge = (count, target) => {
+  let deckButtons = document.getElementsByClassName('list-group-item')
+
+  deckButtons = Array.from(deckButtons)
+
+  deckButtons.forEach((button) => {
+    button.children[0].outerHTML=`<span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span>`
+  })
+
+  target.children[0].outerHTML=`<span class="badge badge-default badge-pill">${count}</span>`
 }
 
 const fetchDecks = () => {
