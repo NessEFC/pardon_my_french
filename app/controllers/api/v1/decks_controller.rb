@@ -7,4 +7,10 @@ class Api::V1::DecksController < ApplicationController
     render json: @decks, status: 201
   end
 
+  def show
+    @deck = Deck.find(params[:id])
+    @cards = @deck.cards
+    render json: @cards, status: 201
+  end
+
 end

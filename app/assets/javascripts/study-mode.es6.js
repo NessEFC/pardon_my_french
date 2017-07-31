@@ -1,6 +1,22 @@
 $(() => {
   fetchDecks()
+  $('body').on('click', '.list-group-item', fetchDeckCards)
 })
+
+const fetchDeckCards = (e) => {
+  const deckID = e.target.closest('.deck').dataset.id
+  $.ajax({
+    type: 'GET',
+    url: `/api/v1/decks/${deckID}`,
+    dataType: 'json'
+  }).then((cards) => {
+    cards.forEach((card) => {
+      const cardObject = new Card(card)
+      cardObject.appendToStudyPage()
+    })
+
+  }).fail(displayFailure)
+}
 
 const fetchDecks = () => {
   $.ajax({

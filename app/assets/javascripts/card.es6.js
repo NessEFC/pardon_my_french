@@ -87,6 +87,16 @@ class Card {
     `)
   }
 
+  appendToStudyPage() {
+    $('.card-list').prepend(`
+      <div class="word" data-id="${this.id}">
+        <p class="card-french-word">${this.french_word}</p>
+        <p class="card-english-word">${this.english_word}</p>
+        <p class="card-connection">${this.personal_connection}</p>
+      </div>
+    `)
+  }
+
   static update(e) {
     const id = parseInt(e.target.parentElement.dataset.id)
     const payload = e.target.innerText
