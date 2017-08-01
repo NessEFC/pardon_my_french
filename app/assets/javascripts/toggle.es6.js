@@ -11,6 +11,7 @@ const toggleMode = (e) => {
   const newClass = getNewClass(boxClass)
   box.removeClass()
   box.addClass(newClass)
+  switchName(e)
 }
 
 const getNewClass = (boxClass) => {
@@ -20,4 +21,10 @@ const getNewClass = (boxClass) => {
     boxClass = 'show-front'
   }
   return boxClass
+}
+
+const switchName = (e) => {
+  const newMode = (e.target.innerText === 'Study Mode') ? 'Creation Mode' : 'Study Mode'
+
+  e.target.innerText=newMode
 }

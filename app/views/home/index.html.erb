@@ -1,35 +1,49 @@
-<h1>Creation Mode</h1>
-
-<button class="btn btn-success toggle-mode-btn">Study Mode</button>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4 text-center">
+    <button class="btn btn-success toggle-mode-btn">Study Mode</button>
+  </div>
+</div>
 
 <section class="box-container">
   <div id="box">
     <figure class="front">
-      <div class="creation-mode-container">
+      <div class="creation-mode-container container">
+        <div class="row">
+          <form class="post-form form-group col-md-2">
+            <h4>Create a Card</h4><br>
+            French:<br><input type="text" name="card[french_word]" placeholder="Ex: Bonjour"></input><br><br>
+            English:<br><input type="text" name="card[english_word]" placeholder="Ex: Hello"></input><br><br>
+            Personal Connection:<br><textarea type="text" name="card[personal_connection]" placeholder=""></textarea><br><br>
 
-        <form class="post-form form-group">
-          <h4>Add a new Card:</h4><br>
-          French:<br><input type="text" name="card[french_word]" placeholder="Ex: Bonjour"></input><br><br>
-          English:<br><input type="text" name="card[english_word]" placeholder="Ex: Hello"></input><br><br>
-          Personal Connection:<br><textarea type="text" name="card[personal_connection]" placeholder="Add your own connection"></textarea><br><br>
+            <input list="decks-list" id="deck-input" placeholder="Assign to Deck">
+              <datalist id="decks-list">
+                  <% @decks.each do |deck| %>
+                    <option data-id="<%= deck.id %>" value="<%= deck.name %>"><%= deck.name %></option>
+                  <% end %>
+              </datalist><br><br>
+            <input type="submit" class="btn btn-primary" id="create-card-btn" value="Create">
+          </form>
 
-          <input list="decks-list" id="deck-input" placeholder="Add to Deck">
-            <datalist id="decks-list">
-                <% @decks.each do |deck| %>
-                  <option data-id="<%= deck.id %>" value="<%= deck.name %>"><%= deck.name %></option>
-                <% end %>
-            </datalist><br><br>
-          <input type="submit" class="btn btn-primary" id="create-card-btn" value="Create">
-        </form>
+          <div class="new-card col-md-10">
+          </div>
 
-        <div class="new-card">
         </div>
-
       </div>
     </figure>
 
     <figure class="back">
-      <p>Study</p>
+      <div class="container">
+        <div class="row">
+
+          <div class="deck-list list-group col-md-2">
+          </div>
+
+          <div class="card-list col-md-10">
+            <input type="submit" class="btn btn-success" id="next-card-btn" value="Next Card">
+          </div>
+
+        </div>
+      </div>
     </figure>
 
     <figure class="right"></figure>
