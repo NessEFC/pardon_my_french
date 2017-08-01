@@ -1,24 +1,43 @@
-# README
+# Pardon My French
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Pardon my French is a web application geared towards helping users learn the French language. Users must create an account in order to access the site, but upon registering, they can then create and store custom flashcards. Cards can also be saved to a deck, which help to categorize users' cards into unique subjects. After the user has finished creating their cards, they can toggle from "Creation Mode" to "Study Mode" and begin studying. Decks are listed with a count of the number of cards included in each deck, and a user can select one in order to flip through the associated cards.
 
-Things you may want to cover:
+This repo is being updated regularly with new features, so check back often for updates.
 
-* Ruby version
+### Set-up
 
-* System dependencies
+Fork or clone down this repo to get started:
+```
+$ git clone git@github.com:NessEFC/pardon_my_french.git
+```
 
-* Configuration
+`cd` into the directory:
+```
+$ cd pardon_my_french
+```
 
-* Database creation
+Then run:
+```
+$ bundle install
+```
 
-* Database initialization
+Be sure to also run these `rake` commands:
+```
+$ rake db:create
+$ rake db:migrate
+```
 
-* How to run the test suite
+To launch the local dev server:
+```
+$ rails s
+```
+...and navigate to http://localhost:3000
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+### Version Information
 
-* ...
+This app was built using Ruby 2.4.1 and Rails version 5.1.1. Check to see if you have these versions installed on your machine.
+
+### Author
+
+Craig Ness
