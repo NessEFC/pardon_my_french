@@ -1,10 +1,12 @@
 # Pardon My French
 
-Pardon my French is a web application geared towards helping users learn the French language. Users must create an account in order to access the site, but upon registering, they can then create and store custom flashcards. Cards can also be saved to a deck, which help to categorize users' cards into unique subjects. After the user has finished creating their cards, they can toggle from "Creation Mode" to "Study Mode" and begin studying. Decks are listed with a count of the number of cards included in each deck, and a user can select one in order to flip through the associated cards.
+[pardon-my-french.herokuapp.com](https://pardon-my-french.herokuapp.com)
 
-This repo is being updated regularly with new features, so check back often for updates.
+Pardon My French is a web application geared towards helping users learn the French language. Users must create an account in order to access the site, but upon registering, they can then create and store custom flashcards. Cards can also be saved to a deck, which help to categorize users' cards into unique subjects. After the user has finished creating their cards, they can toggle from "Creation Mode" to "Study Mode" and begin studying. Decks are listed with a count of the number of cards included in each deck, and a user can select one in order to flip through the associated cards.
 
 ### Set-up
+
+*If you wish to contribute to this repo or run the project locally on your own development server, follow these set-up instructions...*
 
 Fork or clone down this repo to get started:
 ```
