@@ -17,3 +17,9 @@
 /yarn-error.log
 
 .byebug_history
+
+# Ignore public assets
+/public/assets/*
+
+# Ignore configuration files
+config/database.yml
